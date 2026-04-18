@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Sun, Moon, User } from "lucide-react";
 
 export default function Navbar() {
   const [dark, setDark] = useState(false);
@@ -35,7 +36,6 @@ export default function Navbar() {
         top: 0,
         zIndex: 1000,
         background: "var(--bg-card)",
-        borderBottom: "1px solid #ccc",
         padding: "15px 30px",
         transition: "all 0.3s ease",
       }}
@@ -50,9 +50,13 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <h2 style={{ color: "#2e7d32", margin: 0 }}>
-          ReUse ♻️
-        </h2>
+        <h2 style={{
+  fontWeight: "600",
+  letterSpacing: "-0.5px",
+  color: "#2e7d32"
+}}>
+  ReUse
+</h2>
 
         {/* Links */}
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
@@ -60,31 +64,28 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link
-            href="/login"
-            style={{
-              background: "#2e7d32",
-              color: "white",
-              padding: "8px 16px",
-              borderRadius: "6px",
-              textDecoration: "none",
-            }}
-          >
-            Login
-          </Link>
+          <Link href="/login" style={{
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  background: "#2e7d32",
+  color: "white",
+  padding: "8px 16px",
+  borderRadius: "6px",
+  textDecoration: "none"
+}}>
+  <User size={16} />
+  Login
+</Link>
 
           {/* Botão Dark Mode */}
-          <button
-            onClick={toggleTheme}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "18px",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
+          <button onClick={toggleTheme} style={{
+  background: "none",
+  border: "none",
+  cursor: "pointer"
+}}>
+  {dark ? <Sun size={20} /> : <Moon size={20} />}
+</button>
         </div>
       </div>
     </nav>
